@@ -1,0 +1,21 @@
+From the main page users can login/logout and manage their profile
+
+From the main page users can change the displayed recipes between all, favorites and the users recipes
+
+Recipe cards show title, subtitle, category and image
+
+Clicking on a recipe opens the recipe modal
+
+The Recipe modal shows all the recipe details, including the ingredients and steps for that recipe
+
+The owner of a recipe can delete a recipe, make sure this removes all favorites tied to it
+
+The owner of the recipe can add, edit and delete ingredients and steps to the recipe
+
+When creating recipes the title and subtitle validate string length while category is selectable from a dropdown
+
+Logged in users can mark recipes as 'favorites'
+
+Users can search recipes by category
+
+COMPLETED
