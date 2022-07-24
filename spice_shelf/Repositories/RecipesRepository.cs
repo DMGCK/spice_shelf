@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using Dapper;
 using spice_shelf.Models;
 
@@ -25,6 +27,24 @@ namespace spice_shelf.Repositories
       int id = _db.ExecuteScalar<int>(sql, recipeData);
       recipeData.id = id;
       return recipeData;
+    }
+
+    internal List<Recipe> GetAll()
+    {
+      string sql = @"SELECT
+        rec.*,
+        prof.*,
+        FROM
+        recipes rec,
+        JOIN 
+        accounts prof ON prof.id = rec.creatorId";
+      //   List<Recipe> allRecipes = 
+      return _db.Query<Recipe, Profile, Recipe>(sql, (artist, profile) =>
+      {
+        artist.Creator = profile;
+        return artist;
+      }).ToList();
+      //   return allRecipes;
     }
   }
 }

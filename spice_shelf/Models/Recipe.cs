@@ -8,5 +8,7 @@ namespace spice_shelf.Models
     public string subtitle { get; set; }
     public string category { get; set; }
     public string creatorId { get; set; }
+
+    public Profile Creator { get; set; }
   }
 }

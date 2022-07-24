@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using spice_shelf.Models;
 using spice_shelf.Repositories;
 
@@ -16,6 +17,11 @@ namespace spice_shelf.Services
     {
       recipeData.creatorId = userId;
       return _repo.Create(recipeData);
+    }
+
+    internal List<Recipe> GetAll()
+    {
+      return _repo.GetAll();
     }
   }
 }

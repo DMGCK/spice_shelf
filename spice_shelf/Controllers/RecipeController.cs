@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using CodeWorks.Auth0Provider;
 using Microsoft.AspNetCore.Authorization;
@@ -37,18 +38,19 @@ namespace spice_shelf.Controllers
 
 
 
-    // [HttpGet]
-    // public ActionResult<List<Recipe>> GetAll()
-    // {
-    //   try
-    //   {
-
-    //   }
-    //   catch (Exception e)
-    //   {
-    //     return BadRequest(e.Message);
-    //   }
-    // }
+    [HttpGet]
+    public ActionResult<List<Recipe>> GetAll()
+    {
+      try
+      {
+        List<Recipe> allRecipes = _rs.GetAll();
+        return allRecipes;
+      }
+      catch (Exception e)
+      {
+        return BadRequest(e.Message);
+      }
+    }
 
   }
 }
