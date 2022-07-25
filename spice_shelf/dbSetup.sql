@@ -41,3 +41,9 @@ CREATE TABLE
  recipeId int COMMENT 'recipeId' NOT NULL,
  FOREIGN KEY (recipeId) REFERENCES recipes(id) ON DELETE CASCADE FOREIGN key (accountId) REFERENCES accounts(id) on delete CASCADE
  ) default charset utf8 COMMENT ''; */
+
+ SELECT
+    recipe.*,
+    acc.*
+    FROM recipes recipe
+    JOIN accounts acc ON recipe.creatorId = acc.id
