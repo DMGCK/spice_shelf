@@ -21,6 +21,7 @@ CREATE TABLE
 
 CREATE TABLE
     IF NOT EXISTS Ingredient(
+        id INT AUTO_INCREMENT PRIMARY KEY,
         Name VARCHAR(255) COMMENT 'name' NOT NULL,
         quantity int COMMENT 'quantity',
         recipeId int COMMENT 'recipeId' NOT NULL,
@@ -28,7 +29,8 @@ CREATE TABLE
     ) default charset utf8 COMMENT '';
 
 CREATE TABLE
-    IF NOT EXISTS step(
+    IF NOT EXISTS steps(
+        id INT AUTO_INCREMENT PRIMARY KEY,
         position int COMMENT 'position',
         body VARCHAR(255) COMMENT 'body' NOT NULL,
         recipeId int COMMENT 'recipeId' NOT NULL,
@@ -42,8 +44,6 @@ CREATE TABLE
  FOREIGN KEY (recipeId) REFERENCES recipes(id) ON DELETE CASCADE FOREIGN key (accountId) REFERENCES accounts(id) on delete CASCADE
  ) default charset utf8 COMMENT ''; */
 
- SELECT
-    recipe.*,
-    acc.*
-    FROM recipes recipe
+SELECT recipe.*, acc.*
+FROM recipes recipe
     JOIN accounts acc ON recipe.creatorId = acc.id

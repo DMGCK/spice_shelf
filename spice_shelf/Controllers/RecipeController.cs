@@ -11,13 +11,15 @@ namespace spice_shelf.Controllers
 {
     [ApiController]
     [Route(("api/[controller]"))]
-    [Authorize]
+    // [Authorize]
     public class RecipeController : ControllerBase
     {
         private readonly RecipesService _rs;
-        public RecipeController(RecipesService rs)
+        private readonly StepsService _ss;
+        public RecipeController(RecipesService rs, StepsService ss)
         {
             _rs = rs;
+            _ss = ss;
         }
 
         [Authorize]
@@ -58,7 +60,7 @@ namespace spice_shelf.Controllers
             try
             {
                 Account userInfo = await HttpContext.GetUserInfoAsync<Account>();
-                Recipe singleRecipe = _rs.GetById(id, userInfo.Id);
+                Recipe singleRecipe = _rs.GetById(id);
                 return Ok(singleRecipe);
             }
             catch (Exception e)
@@ -66,6 +68,22 @@ namespace spice_shelf.Controllers
                 return BadRequest(e.Message);
             }
         }
+
+        [HttpGet("{id}/steps")]
+        public async Task<ActionResult<List<Step>>> GetStepsById(int id)
+        {
+            try
+            {
+                Account userInfo = await HttpContext.GetUserInfoAsync<Account>();
+                List<Step> steps = _ss.GetByRecipeId(id);
+                return Ok(steps);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
+
 
         [HttpPut("{id}")]
         [Authorize]

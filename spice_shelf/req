@@ -8,10 +8,6 @@ Clicking on a recipe opens the recipe modal
 
 The Recipe modal shows all the recipe details, including the ingredients and steps for that recipe
 
-The owner of a recipe can delete a recipe, make sure this removes all favorites tied to it
-
-The owner of the recipe can add, edit and delete ingredients and steps to the recipe
-
 When creating recipes the title and subtitle validate string length while category is selectable from a dropdown
 
 Logged in users can mark recipes as 'favorites'
@@ -19,3 +15,7 @@ Logged in users can mark recipes as 'favorites'
 Users can search recipes by category
 
 COMPLETED
+
+The owner of a recipe can delete a recipe, make sure this removes all favorites tied to it
+
+The owner of the recipe can add, edit and delete ingredients and steps to the recipe

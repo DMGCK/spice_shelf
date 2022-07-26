@@ -44,10 +44,10 @@ namespace spice_shelf.Repositories
             FROM recipes recipe
             JOIN accounts acc ON recipe.creatorId = acc.id";
             //   List<Recipe> allRecipes = 
-            return _db.Query<Recipe, Profile, Recipe>(sql, (artist, profile) =>
+            return _db.Query<Recipe, Profile, Recipe>(sql, (recipe, profile) =>
       {
-          artist.Creator = profile;
-          return artist;
+          recipe.Creator = profile;
+          return recipe;
       }).ToList();
             //   return allRecipes;
         }
