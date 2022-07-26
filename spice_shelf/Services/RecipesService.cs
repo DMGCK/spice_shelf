@@ -25,7 +25,7 @@ namespace spice_shelf.Services
             return _repo.GetAll();
         }
 
-        internal Recipe GetById(int recId, string userId)
+        internal Recipe GetById(int recId)
         {
             Recipe found = _repo.GetById(recId);
             if (found == null)

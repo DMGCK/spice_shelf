@@ -29,7 +29,8 @@ CREATE TABLE
     ) default charset utf8 COMMENT '';
 
 CREATE TABLE
-    IF NOT EXISTS step(
+    IF NOT EXISTS steps(
+        id INT AUTO_INCREMENT PRIMARY KEY,
         position int COMMENT 'position',
         body VARCHAR(255) COMMENT 'body' NOT NULL,
         recipeId int COMMENT 'recipeId' NOT NULL,
